@@ -1,56 +1,43 @@
 terraform-aws-vpc-production
-A production‑ready, multi‑module Terraform project that builds a secure, scalable AWS network foundation with EC2 compute, CloudWatch monitoring, and modular infrastructure structure suitable for real‑world deployments.
+
+A production‑ready, multi‑module Terraform project that provisions a secure, scalable AWS network foundation. The architecture includes a VPC, multi‑AZ subnets, routing, EC2 compute, security controls, and CloudWatch monitoring — structured to reflect real‑world cloud engineering practices.
 
 Architecture Overview
-This project provisions:
+This project builds a foundational AWS environment suitable for staging or production workloads.
 
 VPC (Production‑grade)
-
-Custom CIDR
-
-DNS hostnames + DNS support
-
-Isolated routing structure
+- Custom CIDR block
+- DNS hostnames + DNS support enabled
+- Isolated routing structure for public/private separation
 
 Public & Private Subnets
-
-High‑availability (multi‑AZ)
-
-Public subnets for ingress
-
-Private subnets for backend workloads
+- Multi‑AZ high availability
+- Public subnets for ingress and internet‑facing components
+- Private subnets for backend workloads and future expansion
 
 Internet Gateway & Route Tables
-
-Public route tables with IGW
-
-Private route tables (future NAT support)
+- Public route tables with IGW
+- Private route tables prepared for NAT Gateway integration
 
 Security Groups
-
-Modular SG definitions
-
-Ingress/egress rules for EC2
+- Modular SG definitions
+- Least‑privilege ingress/egress rules
+- Reusable patterns for EC2 and future services
 
 EC2 Instance (Amazon Linux 2)
+- AMI sourced dynamically via SSM Parameter Store
+- Ensures always‑valid, up‑to‑date Amazon Linux 2 images
+- Deployed into a public subnet
 
-AMI sourced via SSM Parameter Store (always up‑to‑date)
-
-Public subnet deployment
-
-SG attachment
-
-Tags for environment identification
+Tagged for environment identification
 
 CloudWatch Alarms + SNS Notifications
-
-CPU utilization alarm
-
-SNS topic for alerting
-
-Ready for integration with email/SMS
+- CPU utilization alarm
+- SNS topic for alerting
+- Ready for email/SMS integration
 
 Repository Structure
+Code
 terraform-aws-vpc-production/
 │
 ├── main.tf
@@ -65,31 +52,37 @@ terraform-aws-vpc-production/
 │   └── cloudwatch/
 │
 └── .gitignore
-Each module is isolated, reusable, and follows Terraform best practices.
+Each module is isolated, reusable, and follows Terraform best practices for maintainability and scalability.
 
 EC2 AMI Handling (SSM Parameter Store)
 This project uses AWS’s official SSM parameter:
+
+Code
 /aws/service/ami-amazon-linux-latest/amzn2-ami-kernel-default-hvm-x86_64-gp2
 
-This ensures:
+This approach ensures:
 
-* No hard‑coded AMI IDs
+- No hard‑coded AMI IDs
 
-* No AMI expiration issues
+- No AMI expiration or deprecation issues
 
-* Always‑valid Amazon Linux 2 images
+- Always‑current Amazon Linux 2 images
+
+- Cleaner, more maintainable Terraform code
 
 Future Enhancements
-* NAT Gateway for private subnet outbound access
+This repository is designed for incremental expansion. Planned improvements include:
 
-* Application Load Balancer + Target Groups
+- NAT Gateway for private subnet outbound access
 
-* Auto Scaling Group
+- Application Load Balancer + Target Groups
 
-* S3 + IAM roles
+- Auto Scaling Group
 
-* CloudWatch Agent + log streaming
+- S3 + IAM roles for workload access
 
-* GitHub Actions CI/CD
+- CloudWatch Agent + log streaming
 
-* Pre‑commit hooks (fmt, validate, tflint)
+- GitHub Actions CI/CD pipeline
+
+- Pre‑commit hooks (fmt, validate, tflint)
