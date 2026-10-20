@@ -48,7 +48,6 @@ Ready for email/SMS integration
 Repository Structure
 Make sure you include the backticks below — they are required.
 
-Code
 terraform-aws-vpc-production/
 │
 ├── env/
