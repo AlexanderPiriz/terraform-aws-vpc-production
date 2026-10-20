@@ -48,29 +48,33 @@ Ready for email/SMS integration
 Repository Structure
 Make sure you include the backticks below — they are required.
 
+
 terraform-aws-vpc-production/
-│
-├── env/
-│   ├── dev/
-│   │   ├── main.tf
-│   │   ├── backend.tf
-│   │   ├── variables.tf
-│   │   └── dev.tfvars
-│   └── prod/
-│       ├── main.tf
-│       ├── backend.tf
-│       ├── variables.tf
-│       └── prod.tfvars
-│
-├── modules/
-│   ├── vpc/
-│   ├── subnets/
-│   ├── ec2/
-│   ├── security_groups/
-│   ├── cloudwatch_alarms/
-│   └── sns/
-│
-└── .github/workflows/terraform-ci.yml
+|
++-- env/
+|   +-- dev/
+|   |   +-- main.tf
+|   |   +-- backend.tf
+|   |   +-- variables.tf
+|   |   +-- dev.tfvars
+|   |
+|   +-- prod/
+|       +-- main.tf
+|       +-- backend.tf
+|       +-- variables.tf
+|       +-- prod.tfvars
+|
++-- modules/
+|   +-- vpc/
+|   +-- subnets/
+|   +-- ec2/
+|   +-- security_groups/
+|   +-- cloudwatch_alarms/
+|   +-- sns/
+|
++-- .github/workflows/terraform-ci.yml
+
+
 Each module is isolated, reusable, and follows Terraform best practices for maintainability and scalability.
 
 EC2 AMI Handling (SSM Parameter Store)
