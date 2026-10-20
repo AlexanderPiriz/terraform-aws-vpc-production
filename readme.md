@@ -1,3 +1,4 @@
+Terraform AWS Multi‑Environment VPC + EC2 Infrastructure
 A production‑ready, multi‑module Terraform project that provisions a secure, scalable AWS network foundation. The architecture includes a VPC, multi‑AZ subnets, routing, EC2 compute, security controls, and CloudWatch monitoring — structured to reflect real‑world cloud engineering practices.
 
 Architecture Overview
@@ -8,7 +9,7 @@ Custom CIDR block
 
 DNS hostnames + DNS support enabled
 
-Isolated routing structure for public/private separation
+Public/private routing separation
 
 Public & Private Subnets
 Multi‑AZ high availability
@@ -32,7 +33,7 @@ Reusable patterns for EC2 and future services
 EC2 Instance (Amazon Linux 2)
 AMI sourced dynamically via SSM Parameter Store
 
-Ensures always‑valid, up‑to‑date Amazon Linux 2 images
+Always‑current Amazon Linux 2 images
 
 Deployed into a public subnet
 
@@ -45,10 +46,8 @@ SNS topic for alerting
 
 Ready for email/SMS integration
 
-Repository Structure
-Make sure you include the backticks below — they are required.
-
-
+Repository Structure (ASCII‑safe)
+Code
 terraform-aws-vpc-production/
 |
 +-- env/
@@ -73,16 +72,14 @@ terraform-aws-vpc-production/
 |   +-- sns/
 |
 +-- .github/workflows/terraform-ci.yml
-
-
-Each module is isolated, reusable, and follows Terraform best practices for maintainability and scalability.
+This ASCII version avoids Unicode box‑drawing characters, ensuring GitHub Preview renders it correctly.
 
 EC2 AMI Handling (SSM Parameter Store)
 This project uses AWS’s official SSM parameter:
 
 Code
 /aws/service/ami-amazon-linux-latest/amzn2-ami-kernel-default-hvm-x86_64-gp2
-This approach ensures:
+This ensures:
 
 No hard‑coded AMI IDs
 
