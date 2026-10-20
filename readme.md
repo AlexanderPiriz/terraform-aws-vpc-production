@@ -1,5 +1,3 @@
-terraform-aws-vpc-production
-
 A production‑ready, multi‑module Terraform project that provisions a secure, scalable AWS network foundation. The architecture includes a VPC, multi‑AZ subnets, routing, EC2 compute, security controls, and CloudWatch monitoring — structured to reflect real‑world cloud engineering practices.
 
 Architecture Overview
