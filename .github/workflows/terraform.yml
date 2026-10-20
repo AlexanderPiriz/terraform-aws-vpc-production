@@ -2,7 +2,7 @@ name: Terraform CI
 
 on:
   push:
-    branches: ["main", "dev"]
+    branches: ["main", "dev", "Master"]
   pull_request:
 
 jobs:
