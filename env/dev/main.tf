@@ -14,9 +14,9 @@ module "subnets" {
 }
 
 module "nat_gateway" {
-  source            = "../../modules/nat-gateway"
-  public_subnet_id  = module.subnets.public_subnet_ids[0]
-  environment       = var.environment
+  source           = "../../modules/nat-gateway"
+  public_subnet_id = module.subnets.public_subnet_ids[0]
+  environment      = var.environment
 }
 
 module "security_groups" {
