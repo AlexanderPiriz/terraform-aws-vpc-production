@@ -1,10 +1,5 @@
-# Terraform
+.terraform/
 *.tfstate
 *.tfstate.*
-.terraform/
-.terraform.lock.hcl
 crash.log
-
-# Sensitive
-*.pem
-*.key
+.terraform.lock.hcl
